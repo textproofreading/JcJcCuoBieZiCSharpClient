@@ -288,9 +288,6 @@ namespace JcJcCuoBieZiCSharpAPIDemoV1
             }
 
             var response = (HttpWebResponse)request.GetResponse();
-
-
-
             PreViewCuoBieZi newForm = new PreViewCuoBieZi();
             
             string linkStr = "";
