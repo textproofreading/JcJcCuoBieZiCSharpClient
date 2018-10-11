@@ -26,7 +26,6 @@ namespace JcJcCuoBieZiDotNetDemo
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             using (WebClient client = new WebClient())
             {
                 var reqparm = new System.Collections.Specialized.NameValueCollection();
