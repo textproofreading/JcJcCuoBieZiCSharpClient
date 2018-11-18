@@ -17,9 +17,9 @@ using System.Web.Script.Serialization;
 
 namespace JcJcCuoBieZiDotNetDemo
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -53,6 +53,8 @@ namespace JcJcCuoBieZiDotNetDemo
          */
         private void button2_Click(object sender, EventArgs e)
         {
+            // Set cursor as hourglass
+            Cursor.Current = Cursors.WaitCursor;
 
 
             if (true)
@@ -79,6 +81,8 @@ namespace JcJcCuoBieZiDotNetDemo
                 {
                     var result = streamReader.ReadToEnd();
 
+                    MessageBox.Show(result);
+
 
                     RootObject rb_json = JsonConvert.DeserializeObject<RootObject>(result);
                     foreach (Case ep in rb_json.Cases)
@@ -93,8 +97,22 @@ namespace JcJcCuoBieZiDotNetDemo
 
                 }
 
+
+
+                // Execute your time-intensive hashing code here...
+
+                // Set cursor as default arrow
+                Cursor.Current = Cursors.Default;
                 return;
             }
+
+
+            // Execute your time-intensive hashing code here...
+
+            // Set cursor as default arrow
+            Cursor.Current = Cursors.Default;
+
+
             if (true)
             {
 
@@ -251,6 +269,12 @@ namespace JcJcCuoBieZiDotNetDemo
                 //////
             }
 
+        }
+
+        private void buttonVisitCuoBieZiNet_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.cuobiezi.net/?from=dotnet");
+        
         }
     }
 
