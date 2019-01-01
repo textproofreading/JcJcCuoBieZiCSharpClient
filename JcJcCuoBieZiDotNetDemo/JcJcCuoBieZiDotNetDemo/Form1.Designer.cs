@@ -64,11 +64,11 @@
             this.textBox1.Size = new System.Drawing.Size(674, 268);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "腾讯今年中国人民共和国下半年上世纪将在微信账户钱包帐户的“九宫格”中开设快速的笑着保险入口，并上线保险产品。台万第二大金融控股公司富邦金控已与腾讯谈成合作，上述保" +
-    "险产品将由富邦金控旗下内地子公司富邦财险开发或引进。\\n 我最喜欢的就是元霄节吃汤圆";
+    "险产品将由富邦金控旗下内地子公司富邦财险开发或引进。\\n\r\n\r\n 我最喜欢的就是元霄节吃汤圆";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(810, 289);
+            this.button1.Location = new System.Drawing.Point(911, 410);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(228, 48);
@@ -149,8 +149,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(1193, 640);
-            this.splitContainer1.SplitterDistance = 142;
+            this.splitContainer1.Size = new System.Drawing.Size(1205, 649);
+            this.splitContainer1.SplitterDistance = 143;
             this.splitContainer1.TabIndex = 8;
             // 
             // buttonVisitCuoBieZiNet
@@ -167,7 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1193, 640);
+            this.ClientSize = new System.Drawing.Size(1205, 649);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(2);
