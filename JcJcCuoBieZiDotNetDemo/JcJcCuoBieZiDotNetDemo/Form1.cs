@@ -53,12 +53,50 @@ namespace JcJcCuoBieZiDotNetDemo
          */
         private void button2_Click(object sender, EventArgs e)
         {
+
+            string username_val = textBoxUserName.Text;
+            string password_val = textBoxPassword.Text;
+            if(null == username_val || null == password_val)
+            {
+                //http://wpa.qq.com/msgrd?v=3&uin=914946414&site=qq&menu=yes
+                MessageBox.Show("用户名密码不能为空，请联系QQ客服申请：914 946 414 ");
+                return;
+            }
+            username_val = username_val.Trim();
+            password_val = password_val.Trim();
+            if (0 == username_val.Length || 0 == password_val.Length)
+            {
+                //http://wpa.qq.com/msgrd?v=3&uin=914946414&site=qq&menu=yes
+                MessageBox.Show("用户名密码不能为空，请联系QQ客服申请：914 946 414 ");
+                return;
+            }
+
+
+
+
             // Set cursor as hourglass
             Cursor.Current = Cursors.WaitCursor;
 
 
             if (true)
             {
+
+                string api_addr = tbAPIAddr.Text;
+                if(null == api_addr)
+                {
+                    MessageBox.Show("API地址不能为空。");
+                    return;
+                }
+                api_addr = api_addr.Trim();
+                if (0 == api_addr.Length)
+                {
+                    MessageBox.Show("API地址不能为空。");
+                    return;
+                }
+
+
+
+
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://api.CuoBieZi.net/spellcheck/json_check/json_phrase");
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
@@ -67,7 +105,8 @@ namespace JcJcCuoBieZiDotNetDemo
                 {
                     string json = new JavaScriptSerializer().Serialize(new
                     {
-                        username = "tester",
+                        username = username_val,
+                        password = password_val,
                         content = this.textBox1.Text,
                         biz_type = "show",
                         mode = "advanced",
@@ -85,6 +124,13 @@ namespace JcJcCuoBieZiDotNetDemo
 
 
                     RootObject rb_json = JsonConvert.DeserializeObject<RootObject>(result);
+
+                    if(null == rb_json.Cases)
+                    {
+                        MessageBox.Show("返回结果为空");
+                    }
+
+
                     foreach (Case ep in rb_json.Cases)
                     {
                         //Console.WriteLine(ep.age);
