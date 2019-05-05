@@ -110,20 +110,24 @@ namespace JcJcCuoBieZiDotNetDemo
                         content = this.textBox1.Text,
                         biz_type = "show",
                         mode = "advanced",
+
                     });
 
                     streamWriter.Write(json);
                 }
 
+
+
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
-                    var result = streamReader.ReadToEnd();
+                    string result = streamReader.ReadToEnd();
 
                     MessageBox.Show(result);
 
 
                     RootObject rb_json = JsonConvert.DeserializeObject<RootObject>(result);
+
 
                     if(null == rb_json.Cases)
                     {
@@ -132,11 +136,39 @@ namespace JcJcCuoBieZiDotNetDemo
 
 
                     foreach (Case ep in rb_json.Cases)
+                    if(null == rb_json)
                     {
-                        //Console.WriteLine(ep.age);
-                        string postContentOne = "";
-                        postContentOne = ep.Error + " -> " + ep.Tips;
-                        MessageBox.Show(postContentOne);
+                        MessageBox.Show("返回结果为空");
+                        return;
+                    }
+
+                    if ( ! rb_json.Successed)
+                    {
+
+                        MessageBox.Show("调用失败");
+                        return;
+                    }
+
+                    if ( rb_json.Cases == null )
+                    {
+                        MessageBox.Show("返回结果为空");
+                        return;
+                    }
+
+                    try
+                    {
+                        foreach (Case ep in rb_json.Cases)
+                        {
+                            //Console.WriteLine(ep.age);
+                            string postContentOne = "";
+                            postContentOne = ep.Error + " -> " + ep.Tips;
+                            MessageBox.Show(postContentOne);
+                        }
+                    }
+                    catch (Exception exception) {
+
+                        System.Windows.Forms.MessageBox.Show(exception.Message);
+                        Console.WriteLine(exception.Message);
                     }
 
 
@@ -340,6 +372,10 @@ namespace JcJcCuoBieZiDotNetDemo
     {
         //public string companyID { get; set; }
         public List<Case> Cases { get; set; }
+
+        public bool Successed;
+
+
         //public List<Manager> manager { get; set; }
     }
 
