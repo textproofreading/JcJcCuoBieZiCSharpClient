@@ -128,19 +128,23 @@ namespace JcJcCuoBieZiDotNetDemo
 
                     RootObject rb_json = JsonConvert.DeserializeObject<RootObject>(result);
 
-
-                    if(null == rb_json.Cases)
-                    {
-                        MessageBox.Show("返回结果为空");
-                    }
-
-
-                    foreach (Case ep in rb_json.Cases)
-                    if(null == rb_json)
+                    if (null == rb_json)
                     {
                         MessageBox.Show("返回结果为空");
                         return;
                     }
+
+
+
+                    if (null == rb_json.Cases)
+                    {
+                        MessageBox.Show("返回结果为空");
+                    }
+
+
+                    //foreach (Case ep in rb_json.Cases)
+
+
 
                     if ( ! rb_json.Successed)
                     {
